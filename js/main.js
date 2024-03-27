@@ -4,4 +4,27 @@ function getComputerChoice(){
     return choices[choice];
 }
 
-getComputerChoice();
+function playRound(computerChoice, playerChoice){
+    if(computerChoice == 'Rock' && playerChoice == 'scissors' || computerChoice == 'Paper' && playerChoice == 'rock' || computerChoice == 'Scissors' && playerChoice == 'paper'){
+        return ('You lose! ' + computerChoice + ' beats ' + playerChoice + '!');
+    } else {
+        return ('You win! ' + playerChoice + ' beats ' + computerChoice + '!');
+    }
+}
+
+function getPlayerChoice(){
+    const choice = prompt('Rock, Paper, or Scissors? ');
+    return choice.toLowerCase();
+}
+
+function playGame(){
+    let game = 0;
+    while(game <= 4){
+        const computerChoice = getComputerChoice();
+        const playerChoice = getPlayerChoice();
+        console.log(playRound(computerChoice, playerChoice));
+        game += 1;
+    }
+}
+
+playGame();
